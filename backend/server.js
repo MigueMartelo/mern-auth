@@ -11,7 +11,9 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const port = process.env.PORT || 8000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/users', userRoutes);
 
@@ -20,6 +22,7 @@ app.get('/', (req, res) => res.send('Server is ready'));
 app.use(notFound);
 app.use(errorHandler);
 
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
   console.log(`Serve at http://localhost:${port}`);
 });
