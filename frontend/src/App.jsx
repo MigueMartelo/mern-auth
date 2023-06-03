@@ -1,10 +1,11 @@
 import Header from './components/Header';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <>
       <Header />
-      <h1>MERN Auth</h1>
+      <HomePage />
     </>
   );
 }
