@@ -1,4 +1,5 @@
 import { Container, Card, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Hero = () => {
   return (
@@ -12,12 +13,14 @@ const Hero = () => {
             Redux Toolkit, Node, Express, MongoDB, and Mongoose.
           </p>
           <div className='d-flex'>
-            <Button className='me-3' variant='primary' href='/login'>
-              Sign In
-            </Button>
-            <Button variant='secondary' href='/register'>
-              Sign Up
-            </Button>
+            <LinkContainer to='/login'>
+              <Button className='me-3' variant='primary'>
+                Sign In
+              </Button>
+            </LinkContainer>
+            <LinkContainer to='/register'>
+              <Button variant='secondary'>Sign Up</Button>
+            </LinkContainer>
           </div>
         </Card>
       </Container>
