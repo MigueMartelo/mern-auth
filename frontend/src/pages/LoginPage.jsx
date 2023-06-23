@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import FormContainer from '../components/FormContainer';
 import { useLoginMutation } from '../slices/userApiSlice';
 import { setCredentials } from '../slices/authSlice';
+import Loader from '../components/Loader';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [login] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
 
@@ -56,6 +57,9 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
+
+        {isLoading && <Loader />}
+
         <Button className='mt-3' type='submit' variant='primary'>
           Sign In
         </Button>
